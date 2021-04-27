@@ -78,3 +78,4 @@ C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBoxFrontEnd\bin\Debug\net5.0\P
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBoxFrontEnd\obj\Debug\net5.0\Razor\Views\Order\InitOrder.cshtml.g.cs
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBoxFrontEnd\obj\Debug\net5.0\Razor\Views\Order\SelectPizza.cshtml.g.cs
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBoxFrontEnd\obj\Debug\net5.0\Razor\Views\Order\UpdatePizza.cshtml.g.cs
+C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBoxFrontEnd\obj\Debug\net5.0\Razor\Views\Order\AddPizzaTopping.cshtml.g.cs

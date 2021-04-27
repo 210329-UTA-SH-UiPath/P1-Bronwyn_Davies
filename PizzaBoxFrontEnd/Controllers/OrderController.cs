@@ -100,7 +100,53 @@ namespace PizzaBoxFrontEnd.Controllers
         public IActionResult UpdatePizza(int id)
         {
             var pizza = GetPizza(id);
+            var sizes = GetSize();
+            ViewBag.Sizes = sizes.Select(s => new SelectListItem()
+            {
+                Value = s.Id.ToString(),
+                Text = s.Name
+            }).ToList();
+
+            var crusts = GetCrust();
+            ViewBag.Crusts = crusts.Select(s => new SelectListItem()
+            {
+                Value = s.Id.ToString(),
+                Text = s.Name
+            }).ToList();
+
             return View(pizza);
+        }
+
+        private List<Size> GetSize()
+        {
+            var client = new HttpClient();
+            string url = $"https://localhost:5002/Size";
+            var response = client.GetAsync(url);
+            if (response.Result.IsSuccessStatusCode)
+            {
+                var responsebody = response.Result.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<List<Size>>(responsebody);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private List<Crust> GetCrust()
+        {
+            var client = new HttpClient();
+            string url = $"https://localhost:5002/Crust";
+            var response = client.GetAsync(url);
+            if (response.Result.IsSuccessStatusCode)
+            {
+                var responsebody = response.Result.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<List<Crust>>(responsebody);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private Pizza GetPizza(int id)
@@ -117,6 +163,48 @@ namespace PizzaBoxFrontEnd.Controllers
             {
                 return null;
             }
+        }
+
+        [HttpGet]
+
+        public IActionResult AddPizzaTopping(int id)
+        {
+            var pizzaTopping = new PizzaTopping();
+            pizzaTopping.PizzaId = id;
+            var toppings = GetToppings();
+            ViewBag.toppings = toppings.Select(j => new SelectListItem()
+            {
+                Value = j.Id.ToString(),
+                Text = j.Name
+            });
+
+           
+            return View(pizzaTopping);
+        }
+
+        [HttpPost]
+
+        public IActionResult AddPizzaTopping(PizzaTopping pizzaTopping)
+        {
+            InsertPizzaTopping(pizzaTopping);
+            return RedirectToAction("UpdatePizza", new { id = pizzaTopping.PizzaId });
+        }
+        private List<Topping> GetToppings()
+        {
+            
+                var client = new HttpClient();
+                string url = $"https://localhost:5002/Topping";
+                var response = client.GetAsync(url);
+                if (response.Result.IsSuccessStatusCode)
+                {
+                    var responsebody = response.Result.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<List<Topping>>(responsebody);
+                }
+                else
+                {
+                    return null;
+                }
+            
         }
 
         [HttpGet]
@@ -143,9 +231,36 @@ namespace PizzaBoxFrontEnd.Controllers
         {
             var pizzas = PizzaSingleton.Instance.Pizzas;
             var selectedPizza = pizzas[addPizzaViewModel.PizzaIndex];
+            var defaultToppings = selectedPizza.PizzaToppings;
             selectedPizza.OrderId = addPizzaViewModel.OrderId;
             selectedPizza = AddPizza(selectedPizza);
+            if(defaultToppings != null)
+            {
+                foreach (var pizzaTopping in defaultToppings)
+                {
+                    pizzaTopping.PizzaId = selectedPizza.Id;
+                    InsertPizzaTopping(pizzaTopping);
+                }
+            }
             return RedirectToAction("UpdatePizza", new { id = selectedPizza.Id });
+        }
+
+        private PizzaTopping InsertPizzaTopping(PizzaTopping pizzaTopping)
+        {
+            var client = new HttpClient();
+            string url = "https://localhost:5002/PizzaTopping";
+            string pizzaToppingJson = JsonConvert.SerializeObject(pizzaTopping);
+            HttpContent httpContent = new StringContent(pizzaToppingJson, Encoding.UTF8, "application/json");
+            var response = client.PostAsync(url, httpContent);
+            if (response.Result.IsSuccessStatusCode)
+            {
+                var responsebody = response.Result.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<PizzaTopping>(responsebody);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private Pizza AddPizza(Pizza pizza)

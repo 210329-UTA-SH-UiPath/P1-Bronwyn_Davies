@@ -24,7 +24,7 @@ namespace PizzaBox.Api.Controllers
         [HttpGet]
         public Pizza Get(int id)
         {
-            var pizza = _context.Pizzas.Where(p=>p.Id== id).FirstOrDefault();
+            var pizza = _context.Pizzas.Include(p=>p.PizzaToppings).ThenInclude(t=>t.Topping).Where(p=>p.Id== id).FirstOrDefault();
             return pizza;
         }
 
