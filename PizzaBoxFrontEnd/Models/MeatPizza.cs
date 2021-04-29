@@ -12,10 +12,17 @@ namespace PizzaBox.Domain.Models
 		{
 			Name = "Meat Pizza";
 			var baconTopping = PizzaHelper.GetTopping("Bacon");
-			PizzaToppings.Add(new PizzaTopping {ToppingId = baconTopping.Id, Topping = baconTopping });
-
+			if (baconTopping != null)
+            {
+				PizzaToppings.Add(new PizzaTopping { ToppingId = baconTopping.Id, Topping = baconTopping });
+			}
+			
 			var sausageTopping = PizzaHelper.GetTopping("Sausage");
-			PizzaToppings.Add(new PizzaTopping {ToppingId = sausageTopping.Id, Topping = sausageTopping });
+			if (sausageTopping != null)
+            {
+				PizzaToppings.Add(new PizzaTopping { ToppingId = sausageTopping.Id, Topping = sausageTopping });
+			}
+			
 			CrustId = 1;
 			SizeId = 1;
 		}

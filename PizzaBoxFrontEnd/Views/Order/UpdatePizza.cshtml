@@ -4,9 +4,18 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Update Pizza</h1>
+    @if(ViewBag.ErrorMessage != null)
+            {
+                <label class="text-danger">
+                    @ViewBag.ErrorMessage
+                </label>
+            }
     <form asp-action="UpdatePizza">
         @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.OrderId)
+        @Html.HiddenFor(m => m.Name)
+
         <div class="form-group">
             <label>
                 Quantity
@@ -49,7 +58,7 @@
                     <td>@pizzaTopping.Topping.Name</td>
                     <td>@pizzaTopping.Topping.Price.ToString("c2")</td>
                     <td>
-                        @Html.ActionLink("Edit", "EditPizzaTopping", new { id = pizzaTopping.Id })
+                       
                         @Html.ActionLink("Delete", "DeletePizzaTopping", new { id = pizzaTopping.Id })
 
                     </td>

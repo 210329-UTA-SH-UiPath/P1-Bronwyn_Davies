@@ -1,4 +1,6 @@
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\bin\Debug\net5.0\PizzaBox.Storing.deps.json
+C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\bin\Debug\net5.0\PizzaBox.Storing.runtimeconfig.json
+C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\bin\Debug\net5.0\PizzaBox.Storing.runtimeconfig.dev.json
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\bin\Debug\net5.0\PizzaBox.Storing.dll
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\bin\Debug\net5.0\ref\PizzaBox.Storing.dll
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\bin\Debug\net5.0\PizzaBox.Storing.pdb
@@ -10,3 +12,4 @@ C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\obj\Debug\net5.0\P
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\obj\Debug\net5.0\PizzaBox.Storing.dll
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\obj\Debug\net5.0\ref\PizzaBox.Storing.dll
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\obj\Debug\net5.0\PizzaBox.Storing.pdb
+C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Storing\obj\Debug\net5.0\PizzaBox.Storing.genruntimeconfig.cache

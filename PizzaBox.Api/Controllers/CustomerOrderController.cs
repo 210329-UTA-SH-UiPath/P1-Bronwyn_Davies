@@ -25,13 +25,6 @@ namespace PizzaBox.Api.Controllers
         [HttpGet]
         public IEnumerable<Order> Get(int id)
         {
-            var customerOrders = _context.Orders.Include(o => o.Customer).
-                Include(o => o.Store)
-                .Include(o => o.Pizzas).
-                ThenInclude(p => p.PizzaToppings).ThenInclude(pt => pt.Topping)
-                .Include(o => o.Pizzas).ThenInclude(p => p.Crust)
-                .Include(o => o.Pizzas).ThenInclude(p => p.Size)
-                .Where(o => o.CustomerId == id).ToList(); //Calls SQL Server immediately to execute the query and return result
 
             IEnumerable<Order> IEnumerableCustomerOrders = _context.Orders.Include(o => o.Customer).
                 Include(o => o.Store)
@@ -39,13 +32,9 @@ namespace PizzaBox.Api.Controllers
                 ThenInclude(p => p.PizzaToppings).ThenInclude(pt => pt.Topping)
                 .Include(o => o.Pizzas).ThenInclude(p => p.Crust)
                 .Include(o => o.Pizzas).ThenInclude(p => p.Size)
-                .Where(o => o.CustomerId == id); //does not call SQL server
+                .Where(o => o.CustomerId == id && o.OrderStatus == "completed").ToList();
 
-            foreach (var order in IEnumerableCustomerOrders) // Oh, someone is trying to use this list now, I better call SQL and execute the query and return result
-            {
-
-            }
-            return customerOrders;
+            return IEnumerableCustomerOrders;
         }
     }
 }

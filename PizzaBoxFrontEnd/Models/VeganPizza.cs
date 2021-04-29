@@ -12,12 +12,19 @@ namespace PizzaBox.Domain.Models
 		{
 			Name = "Vegan Pizza";
 			var spinachTopping = PizzaHelper.GetTopping("Spinach");
-			PizzaToppings.Add(new PizzaTopping {ToppingId = spinachTopping.Id, Topping = spinachTopping });
+			if (spinachTopping != null)
+            {
+				PizzaToppings.Add(new PizzaTopping { ToppingId = spinachTopping.Id, Topping = spinachTopping });
+			}
+			
 
 			var olivesTopping = PizzaHelper.GetTopping("Olives");
-			PizzaToppings.Add(new PizzaTopping {ToppingId = olivesTopping.Id, Topping = olivesTopping });
-			CrustId = 1;
-			SizeId = 1;
+			if (olivesTopping != null)
+            {
+				PizzaToppings.Add(new PizzaTopping { ToppingId = olivesTopping.Id, Topping = olivesTopping });
+				CrustId = 1;
+				SizeId = 1;
+			}
 
 		}
 	}

@@ -31,7 +31,7 @@ namespace PizzaBoxFrontEnd.Controllers
         public IActionResult AddCustomer(Customer customer)
         {
             var client = new HttpClient();
-            string url = "https://localhost:5002/Customer";
+            string url = "http://localhost:5002/Customer";
             string customerJson = JsonConvert.SerializeObject(customer);
             HttpContent httpContent = new StringContent(customerJson, Encoding.UTF8, "application/json");
             var response = client.PostAsync(url, httpContent);
@@ -49,7 +49,7 @@ namespace PizzaBoxFrontEnd.Controllers
         {
             List<Store> stores = new List<Store>();
             var client = new HttpClient();
-            string url = "https://localhost:5002/Store";
+            string url = "http://localhost:5002/Store";
             var response = client.GetAsync(url);
             if (response.Result.IsSuccessStatusCode)
             {
@@ -64,7 +64,7 @@ namespace PizzaBoxFrontEnd.Controllers
             List<Order> orders = new List<Order>(); //Call API to get the list
             using (var client = new HttpClient())
             {
-                string url = $"https://localhost:5002/StoreOrder?id={storeId}";
+                string url = $"http://localhost:5002/StoreOrder?id={storeId}";
                 var response = client.GetAsync(url);
 
                 if (response.Result.IsSuccessStatusCode)
@@ -97,7 +97,7 @@ namespace PizzaBoxFrontEnd.Controllers
         {
             List<Customer> customers = new List<Customer>();
             var client = new HttpClient();
-            string url = "https://localhost:5002/Customer";
+            string url = "http://localhost:5002/Customer";
             var response = client.GetAsync(url);
             if (response.Result.IsSuccessStatusCode)
             {
@@ -121,7 +121,7 @@ namespace PizzaBoxFrontEnd.Controllers
         {
             List<Order> orders = new List<Order>();
             var client = new HttpClient();
-            string url = $"https://localhost:5002/CustomerOrder?id={customerId}";
+            string url = $"http://localhost:5002/CustomerOrder?id={customerId}";
             var response = client.GetAsync(url);
             if (response.Result.IsSuccessStatusCode)
             {

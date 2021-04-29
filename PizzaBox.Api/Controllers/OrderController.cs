@@ -53,7 +53,19 @@ namespace PizzaBox.Api.Controllers
 		//	return newOrder;
 
 		//}
+		[HttpGet]
 
+		public Order Get(int id)
+        {
+			return _context.Orders
+			.Include(o => o.Customer).
+				Include(o => o.Store)
+				.Include(o => o.Pizzas).
+				ThenInclude(p => p.PizzaToppings).ThenInclude(pt => pt.Topping)
+				.Include(o => o.Pizzas).ThenInclude(p => p.Crust)
+				.Include(o => o.Pizzas).ThenInclude(p => p.Size)
+				.Where(o => o.Id == id).FirstOrDefault();
+		}
 		[HttpPost]
 
         public Order Post(Order order)

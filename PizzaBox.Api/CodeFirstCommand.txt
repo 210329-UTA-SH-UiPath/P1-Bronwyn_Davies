@@ -1,0 +1,4 @@
+1. Generate database migration script into your Migrations folder
+dotnet ef migrations add (new name) --project PizzaBox.Storing --startup-project PizzaBox.Api
+2. Actually create/update database
+dotnet ef database update --project PizzaBox.Storing --startup-project PizzaBox.Api

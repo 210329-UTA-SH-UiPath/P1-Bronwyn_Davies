@@ -39,6 +39,32 @@ namespace PizzaBox.Api.Controllers
             return pizza;
         }
 
+        [HttpDelete]
+
+        public Pizza Delete(int id)
+        {
+            var pizza = _context.Pizzas.Where(i => i.Id == id).FirstOrDefault();
+            if (pizza != null)
+            {
+                DeletePizzaToppings(id);
+                _context.Pizzas.Remove(pizza);
+                _context.SaveChanges();
+
+            }
+
+            return pizza;
+        }
+
+        private void DeletePizzaToppings(int id)
+        {
+            var pizzaToppings = _context.PizzaToppings.Where(i => i.PizzaId == id);
+            if (pizzaToppings.Any())
+            {
+                _context.PizzaToppings.RemoveRange(pizzaToppings);
+                _context.SaveChanges();
+
+            }
+        }
 
         [HttpPut]
 

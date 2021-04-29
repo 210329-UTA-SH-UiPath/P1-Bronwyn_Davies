@@ -4,7 +4,15 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Place Order</h1>
+    @if (ViewBag.ErrorMessage != null)
+            {
+                <label class="text-danger">
+                    @ViewBag.ErrorMessage
+                    
+                </label>
+            }
+
     <form asp-action="InitOrder">
         @Html.HiddenFor(m=>m.OrderId)
         <div class="form-group">
