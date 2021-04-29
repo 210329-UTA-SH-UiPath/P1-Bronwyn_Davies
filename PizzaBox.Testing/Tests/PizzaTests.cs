@@ -4,26 +4,26 @@ using Xunit;
 
 namespace PizzaBox.Testing.Tests
 {
-  /// <summary>
-  /// 
-  /// </summary>
-  public class PizzaTests
-  {
     /// <summary>
     /// 
     /// </summary>
-    [Fact]
-    public void MeatPizza_ShouldHaveCorrectName()
+    public class PizzaTests
     {
-      // arrange
-      var sut = new MeatPizza();
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void MeatPizza_ShouldHaveCorrectName()
+        {
+            // arrange
+            var sut = new MeatPizza();
 
-      // act
-      var actual = sut.Name;
+            // act
+            var actual = sut.Name;
 
-      // assert
-      Assert.Equal("Meat Pizza", actual);
-    }
+            // assert
+            Assert.Equal("Meat Pizza", actual);
+        }
         [Fact]
         public void VeganPizza_ShouldHaveCorrectName()
         {

@@ -151,3 +151,5 @@ C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Testing\obj\Debug\net5.0\P
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Testing\obj\Debug\net5.0\ref\PizzaBox.Testing.dll
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Testing\obj\Debug\net5.0\PizzaBox.Testing.pdb
 C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Testing\obj\Debug\net5.0\PizzaBox.Testing.genruntimeconfig.cache
+C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Testing\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\bldav\revature\P1-PizzaBox\PizzaBox\PizzaBox.Testing\bin\Debug\net5.0\Moq.dll

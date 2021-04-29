@@ -2,15 +2,15 @@ using PizzaBox.Domain.Entities;
 
 namespace PizzaBox.Domain.Models
 {
-  /// <summary>
-  /// 
-  /// </summary>
-  public class KetoFriendlyPizza : Pizza
-  {
-
-    public KetoFriendlyPizza()
+    /// <summary>
+    /// 
+    /// </summary>
+    public class KetoFriendlyPizza : Pizza
     {
-      Name = "Keto Friendly Pizza";
+
+        public KetoFriendlyPizza()
+        {
+            Name = "Keto Friendly Pizza";
             var extraCheeseTopping = PizzaHelper.GetTopping("Extra Cheese");
             if (extraCheeseTopping != null)
             {
@@ -25,5 +25,5 @@ namespace PizzaBox.Domain.Models
             CrustId = 1;
             SizeId = 1;
         }
-  }
+    }
 }

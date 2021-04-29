@@ -13,14 +13,15 @@ namespace PizzaBox.Domain.Models
 		{
 			Name = "Bbq Chicken Pizza";
 			var chickenTopping = PizzaHelper.GetTopping("Chicken");
-			if (chickenTopping != null) {
+			if (chickenTopping != null)
+			{
 				PizzaToppings.Add(new PizzaTopping { ToppingId = chickenTopping.Id, Topping = chickenTopping });
 			}
-			
+
 
 			var bbqSauceTopping = PizzaHelper.GetTopping("BBQ Sauce");
 			if (bbqSauceTopping != null)
-            {
+			{
 				PizzaToppings.Add(new PizzaTopping { ToppingId = bbqSauceTopping.Id, Topping = bbqSauceTopping });
 			}
 			CrustId = 1;

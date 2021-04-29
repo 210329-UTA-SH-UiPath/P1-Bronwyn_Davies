@@ -4,33 +4,33 @@ using PizzaBox.Domain.Models;
 
 namespace PizzaBox.Client.Singletons
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	public class PizzaSingleton
-  {
-    private static PizzaSingleton _instance;
-
-    public List<Pizza> Pizzas { get; set; }
-    public static PizzaSingleton Instance
-    {
-      get
-      {
-        if (_instance == null)
-        {
-          _instance = new PizzaSingleton();
-        }
-
-        return _instance;
-      }
-    }
-
     /// <summary>
     /// 
     /// </summary>
-    private PizzaSingleton()
+    public class PizzaSingleton
     {
-      Pizzas = new List<Pizza>()
+        private static PizzaSingleton _instance;
+
+        public List<Pizza> Pizzas { get; set; }
+        public static PizzaSingleton Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new PizzaSingleton();
+                }
+
+                return _instance;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private PizzaSingleton()
+        {
+            Pizzas = new List<Pizza>()
       {
         new MeatPizza(),
         new VeganPizza(),
@@ -38,6 +38,6 @@ namespace PizzaBox.Client.Singletons
         new BbqChickenPizza(),
         new CreateYourOwn()
     };
+        }
     }
-  }
 }

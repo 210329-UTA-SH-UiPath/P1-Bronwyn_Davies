@@ -322,6 +322,7 @@ namespace PizzaBoxFrontEnd.Controllers
         {
             var pizzas = PizzaSingleton.Instance.Pizzas;
             var selectedPizza = pizzas[addPizzaViewModel.PizzaIndex];
+           // if (selectedPizza is MeatPizza)
             var defaultToppings = selectedPizza.PizzaToppings;
             selectedPizza.OrderId = addPizzaViewModel.OrderId;
             selectedPizza = AddPizza(selectedPizza);
